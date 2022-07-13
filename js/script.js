@@ -37,7 +37,7 @@ const toDoList = new Vue({
         list: [
             {
                 text: 'Fare la spesa',
-                done: false,
+                done: true,
             },
             {
                 text: 'Uscire con Francesca',
@@ -49,7 +49,7 @@ const toDoList = new Vue({
             },
             {
                 text: 'Tirare i piedi',
-                done: false,
+                done: true,
             },
         ],
     },

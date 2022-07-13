@@ -19,14 +19,69 @@
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
 
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/ddb740f05b.js" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 
 <body>
     <div id="root">
-        <ul class="list-group">
-            <li class="list-group-item" v-for="(item,index) in list">{{ item.text }}</li>
-        </ul>
+        <!-- Intestazione -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center">
+                            <figure>
+                                <img 
+                                src="img/logo-scritta.jpg" 
+                                alt="logo-boolean"
+                                class="image-fluid"
+                                >
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenuti principali -->
+        <main>
+            <h2 class="text-center my-3" v-show="list.length !== 0">Your Activity</h2>
+            <!-- All buttons -->
+            <div class="d-flex justify-content-center my-3">
+                <div>
+                    <button type="button" class="btn btn-success">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>New Activity</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                        <div class="checked">
+                            <i class="fa-solid fa-check-double"></i>
+                            <span>All Checked</span>
+                        </div>
+                        <div class="not-checked d-none">
+                            <span>Not Checked</span>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fa-solid fa-xmark"></i>
+                        <span>  Delete All</span>
+                    </button>
+                </div>
+            </div>
+            <!-- List -->
+            <div class="d-flex justify-content-center">
+                <ul class="list-group w-50">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item,index) in list">
+                        <span v-if="item.done">{{ item.text }}</span>
+                        <span v-else><del>{{ item.text }}</del></span>
+                        <i class="fa-solid fa-xmark fa-2x"></i>
+                    </li>
+                </ul>
+            </div>
+        </main>
     </div>
     <script src="js/script.js"></script>
 </body>
