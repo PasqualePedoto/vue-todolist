@@ -92,7 +92,7 @@
                             <div>
                                 <input type="text" placeholder="Add new task" class="my-3" v-model="textOfNewTask">
                             </div>
-                            <button type="button" class="btn btn-success" @click="addNewTask">
+                            <button type="button" class="btn btn-success" @keyup.enter="addNewTask" @click="addNewTask">
                                 <i class="fa-solid fa-plus"></i>
                                 <span>Add new activity</span>
                             </button>

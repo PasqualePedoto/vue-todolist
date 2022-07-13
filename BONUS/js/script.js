@@ -69,9 +69,6 @@ const toDoList = new Vue({
             };
             this.list.push(newTask);
             this.textOfNewTask = '';
-        },
-        enter() {
-            console.log('premuto');
         }
     },
     computed: {
