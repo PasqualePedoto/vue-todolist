@@ -52,10 +52,23 @@ const toDoList = new Vue({
                 done: true,
             },
         ],
+        textOfNewTask: '',
+        dropNewTaskSection: false,
     },
     methods: {
         deleteTask(i) {
             this.list = this.list.filter((item,index) => index !== i);
+        },
+        dropNewTask() {
+            this.dropNewTaskSection = true;
+        },
+        addNewTask() {
+            const newTask = {
+                text: this.textOfNewTask,
+                done: true,
+            };
+            this.list.push(newTask);
+            this.textOfNewTask = '';
         }
     },
     computed: {
