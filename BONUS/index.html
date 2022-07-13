@@ -90,9 +90,9 @@
                         </div>
                         <div v-else>
                             <div>
-                                <input type="text" placeholder="Add new task" class="my-3" v-model="textOfNewTask">
+                                <input type="text" placeholder="Add new task" class="my-3" v-model="textOfNewTask" @keyup.enter="addNewTask">
                             </div>
-                            <button type="button" class="btn btn-success" @keyup.enter="addNewTask" @click="addNewTask">
+                            <button type="button" class="btn btn-success" @click="addNewTask">
                                 <i class="fa-solid fa-plus"></i>
                                 <span>Add new activity</span>
                             </button>
