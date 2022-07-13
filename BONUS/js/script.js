@@ -54,6 +54,7 @@ const toDoList = new Vue({
         ],
         textOfNewTask: '',
         dropNewTaskSection: false,
+        allChecked: false,
     },
     methods: {
         deleteTask(i) {
@@ -63,16 +64,30 @@ const toDoList = new Vue({
             this.dropNewTaskSection = true;
         },
         addNewTask() {
-            const newTask = {
-                text: this.textOfNewTask,
-                done: true,
-            };
-            this.list.push(newTask);
-            this.textOfNewTask = '';
+            if (textOfNewTask !== '') {
+                const newTask = {
+                    text: this.textOfNewTask,
+                    done: true,
+                };
+                this.list.push(newTask);
+                this.textOfNewTask = '';
+            }
         },
         changeDoneAttr(index) {
             const doneProperty = this.list[index].done;
             this.list[index].done = doneProperty === true ? false : true;
+        },
+        allItemsChecked() {
+            if (!this.allChecked) {
+                this.list.forEach(item => item.done = false);
+                this.allChecked = true;
+            } else {
+                this.list.forEach(item => item.done = true);
+                this.allChecked = false;
+            }
+        },
+        deleteAllItems() {
+            this.list = this.list.filter((item, index) => false);
         }
     },
     computed: {

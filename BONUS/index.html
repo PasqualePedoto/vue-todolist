@@ -52,22 +52,19 @@
             <!-- All buttons -->
             <div class="d-flex justify-content-center my-3">
                 <div>
-                    <button type="button" class="btn btn-success">
-                        <i class="fa-solid fa-plus"></i>
-                        <span>New Activity</span>
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                        <div class="checked">
+                    <button type="button" class="btn btn-secondary" @click="allItemsChecked">
+                        <div class="checked" v-if="!allChecked">
                             <i class="fa-solid fa-check-double"></i>
                             <span>All Checked</span>
                         </div>
-                        <div class="not-checked d-none">
-                            <span>Not Checked</span>
+                        <div class="not-checked" v-else>
+                            <i class="fa-solid fa-xmark"></i>
+                            <span>All Not Checked</span>
                         </div>
                     </button>
-                    <button type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" @click="deleteAllItems">
                         <i class="fa-solid fa-xmark"></i>
-                        <span>  Delete All</span>
+                        <span>Delete All</span>
                     </button>
                 </div>
             </div>
@@ -90,7 +87,7 @@
                         </div>
                         <div v-else>
                             <div>
-                                <input type="text" placeholder="Add new task" class="my-3" v-model="textOfNewTask" @keyup.enter="addNewTask">
+                                <input type="text" placeholder="Add new task" class="my-3 form-control" v-model="textOfNewTask" @keyup.enter="addNewTask">
                             </div>
                             <button type="button" class="btn btn-success" @click="addNewTask">
                                 <i class="fa-solid fa-plus"></i>
