@@ -69,6 +69,10 @@ const toDoList = new Vue({
             };
             this.list.push(newTask);
             this.textOfNewTask = '';
+        },
+        changeDoneAttr(index) {
+            const doneProperty = this.list[index].done;
+            this.list[index].done = doneProperty === true ? false : true;
         }
     },
     computed: {

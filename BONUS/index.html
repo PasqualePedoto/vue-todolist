@@ -74,7 +74,7 @@
             <!-- List -->
             <div class="d-flex justify-content-center">
                 <ul class="list-group w-50">
-                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item,index) in list">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item,index) in list" @click="changeDoneAttr(index)">
                         <span v-if="item.done">{{ item.text }}</span>
                         <span v-else><del>{{ item.text }}</del></span>
                         <button type="button" class="btn" @click="deleteTask(index)">
