@@ -53,8 +53,10 @@ const toDoList = new Vue({
             },
         ],
     },
-    method: {
-        
+    methods: {
+        deleteTask(i) {
+            this.list = this.list.filter((item,index) => index !== i);
+        }
     },
     computed: {
         

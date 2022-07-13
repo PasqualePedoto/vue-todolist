@@ -77,7 +77,9 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item,index) in list">
                         <span v-if="item.done">{{ item.text }}</span>
                         <span v-else><del>{{ item.text }}</del></span>
-                        <i class="fa-solid fa-xmark fa-2x"></i>
+                        <button type="button" class="btn" @click="deleteTask(index)">
+                            <i class="fa-solid fa-xmark fa-2x"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
